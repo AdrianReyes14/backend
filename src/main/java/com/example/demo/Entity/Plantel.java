@@ -3,9 +3,11 @@ package com.example.demo.Entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import java.util.List;
+
 
 @Entity
-@Table
+@Table(name = "planteles")
 @Getter
 @Setter
 public class Plantel {
@@ -18,6 +20,9 @@ public class Plantel {
 
     @Column(nullable = false, length = 50)
     private String clave;
+
+    @OneToMany(mappedBy = "plantel", cascade = CascadeType.ALL)
+    private List<Salon> salones;
 
     @ManyToOne
     @JoinColumn(name = "estado_id", nullable = false)

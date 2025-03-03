@@ -1,22 +1,24 @@
 package com.example.demo.Entity;
 
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "salones")
+@Table(name = "users_roles")
 @Getter
 @Setter
-public class Salon {
+public class UserRole {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 100)
-    private String nombre;
+    @Column(nullable = false)
+    private String role;
 
     @ManyToOne
-    @JoinColumn(name = "plantel_id", nullable = false)
-    private Plantel plantel;
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 }
+
