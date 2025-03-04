@@ -18,9 +18,6 @@ public class Plantel {
     @Column(nullable = false, length = 255)
     private String nombre;
 
-    @Column(nullable = false, length = 50)
-    private String clave;
-
     @OneToMany(mappedBy = "plantel", cascade = CascadeType.ALL)
     private List<Salon> salones;
 
